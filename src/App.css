@@ -1,0 +1,13 @@
+*{
+  --background-color-one:#1b2530;
+  --background-color-two:#0f171e;
+  --background-color-three:#121926;
+  --transparent-color: rgba(255, 122, 89,0);
+  --color-one:rgba(255, 255, 255, 0.6);
+  --color-two:rgba(242,244,246,.9);
+  --standard-color:white;
+  --highlighter-color:#1f80e0;
+  --image-background-color-one: rgba(4,8,15,0);
+  --image-background-color-two: #192133;
+  --btn-hover-color:grey;
+  }
