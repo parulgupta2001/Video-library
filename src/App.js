@@ -1,29 +1,60 @@
 import "./App.css";
-import { Navbar } from "./frontend/components/navbar/Navbar";
-import { Footer } from "./frontend/components/footer/Footer";
+import { RequiresAuth } from "./frontend/RequiresAuth";
 import {
   Home,
   History,
   Liked,
   Playlist,
   WatchLater,
+  Login,
+  Signup,
+  NotFound,
 } from "./frontend/pages/index";
 import { Routes, Route } from "react-router-dom";
+import Mockman from "mockman-js";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/liked" element={<Liked />} />
-        <Route path="/playlist" element={<Playlist />} />
-        <Route path="/watchLater" element={<WatchLater />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/history"
+          element={
+            <RequiresAuth>
+              <History />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/liked"
+          element={
+            <RequiresAuth>
+              <Liked />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/playlist"
+          element={
+            <RequiresAuth>
+              <Playlist />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/watchLater"
+          element={
+            <RequiresAuth>
+              <WatchLater />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/test" element={<Mockman />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-
-      <Footer />
     </div>
   );
 }

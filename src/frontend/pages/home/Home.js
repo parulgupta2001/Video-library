@@ -1,4 +1,4 @@
-import { Slider } from "../../components/slider/Slider";
+import { Slideshow } from "../../components/slider/Slider";
 import { useState, useEffect } from "react";
 import { GoPlay } from "react-icons/go";
 import { MdOutlineWatchLater } from "react-icons/md";
@@ -6,6 +6,8 @@ import { AiOutlineLike } from "react-icons/ai";
 import axios from "axios";
 import "./home.css";
 import "../../../App.css";
+import { Navbar } from "../../components/navbar/Navbar";
+import { Footer } from "../../components/footer/Footer";
 
 export function Home() {
   const [videoData, setVideoData] = useState([]);
@@ -18,30 +20,34 @@ export function Home() {
   }, []);
 
   return (
-    <div className="home_container">
-      <Slider />
-      <div className="data_container">
-        {videoData.map(({ img, title }) => (
-          <div className="card_container">
-            <img className="img_card_container" src={img} alt="img" />
-            <div className="on_hover">
-              <div>{title}</div>
-              <button>
-                <MdOutlineWatchLater />
-                Watch Later
-              </button>
-              <button>
-                <AiOutlineLike />
-                Add to Liked
-              </button>
-              <button>
-                <GoPlay />
-                Add to Playlist
-              </button>
+    <>
+      <Navbar />
+      <div className="home_container">
+        <Slideshow />
+        <div className="data_container">
+          {videoData.map(({ img, title }) => (
+            <div className="card_container">
+              <img className="img_card_container" src={img} alt="img" />
+              <div className="on_hover">
+                <div>{title}</div>
+                <button>
+                  <MdOutlineWatchLater />
+                  Watch Later
+                </button>
+                <button>
+                  <AiOutlineLike />
+                  Add to Liked
+                </button>
+                <button>
+                  <GoPlay />
+                  Add to Playlist
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
