@@ -11,7 +11,7 @@ const properties = {
   pauseOnHover: false,
 };
 
-export function Slider() {
+export function Slideshow() {
   const [image, setImage] = useState([]);
 
   useEffect(() => {
@@ -21,23 +21,21 @@ export function Slider() {
   }, []);
 
   return (
-    <div>
-      <div className="slide-container">
-        <Slide {...properties}>
-          {image.map((each, index) => (
-            <img
-              key={index}
-              style={{
-                width: "100%",
-                height: "25rem",
-                marginTop: "4.3rem",
-              }}
-              src={each.slider_img}
-              alt="slide_images"
-            />
-          ))}
-        </Slide>
-      </div>
+    <div className="slide-container">
+      <Slide {...properties}>
+        {image.map((each, index) => (
+          <img
+            key={index}
+            style={{
+              width: "100%",
+              height: "10rem",
+              marginTop: "4.3rem",
+            }}
+            src={each.slide_img}
+            alt="slide_images"
+          />
+        ))}
+      </Slide>
     </div>
   );
 }

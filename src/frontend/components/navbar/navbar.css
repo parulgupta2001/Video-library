@@ -77,7 +77,9 @@
 
 .nav_search{
     display: flex;
-    column-gap: 5px;
+    justify-content:flex-end;
+    align-items: center;
+    position:relative;
 }
 
 .search_bar{
@@ -85,10 +87,17 @@
     column-gap: 1.5rem;
 }
 
-.login{
+.login,.logout{
     background-color: var(--highlighter-color);
     color:var(--standard-color);
     border-radius: 5px;
     padding:5px;
     font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.search_icon{
+    position:absolute;
+    padding: 2px;
 }

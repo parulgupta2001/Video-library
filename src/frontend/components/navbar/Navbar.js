@@ -1,10 +1,26 @@
 import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaCaretDown } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/auth-context";
 import "./navbar.css";
-import "../../../App.css";
 
 export function Navbar() {
+  const navigate = useNavigate();
+  const { authState, authDispatch } = useAuth();
+  const { token } = authState;
+
+  function logoutHandler(e) {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    authDispatch({ type: "TOKEN", payload: null });
+    navigate("/");
+  }
+
+  function loginHandler() {
+    navigate("/login");
+  }
+
   return (
     <div className="navigation_container">
       <div className="links">
@@ -39,22 +55,22 @@ export function Navbar() {
               <FaCaretDown />
             </button>
             <div className="dropdown_content">
-              <Link to="./all" className="dropdown_link">
+              <Link to="/all" className="dropdown_link">
                 All
               </Link>
-              <Link to="./motivational" className="dropdown_link">
+              <Link to="/motivational" className="dropdown_link">
                 Motivational Songs
               </Link>
-              <Link to="./devotional" className="dropdown_link">
+              <Link to="/devotional" className="dropdown_link">
                 Devotional Songs
               </Link>
-              <Link to="./meditation" className="dropdown_link">
+              <Link to="/meditation" className="dropdown_link">
                 Meditation Songs
               </Link>
-              <Link to="./exercise" className="dropdown_link">
+              <Link to="/exercise" className="dropdown_link">
                 Exercise Videos
               </Link>
-              <Link to="./yoga" className="dropdown_link">
+              <Link to="/yoga" className="dropdown_link">
                 Yoga Videos
               </Link>
             </div>
@@ -65,9 +81,17 @@ export function Navbar() {
       <div className="search_bar">
         <div className="nav_search">
           <input placeholder="Search" />
-          <AiOutlineSearch />
+          <AiOutlineSearch className="search_icon" />
         </div>
-        <div className="login">Login</div>
+        {token ? (
+          <button className="logout" onClick={logoutHandler}>
+            Logout
+          </button>
+        ) : (
+          <button className="login" onClick={loginHandler}>
+            Login
+          </button>
+        )}
       </div>
     </div>
   );

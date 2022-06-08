@@ -1,7 +1,6 @@
 import "./footer.css";
 import { FaTwitter } from "react-icons/fa";
 import { GrFacebookOption } from "react-icons/gr";
-import "../../../App.css";
 
 export function Footer() {
   return (
