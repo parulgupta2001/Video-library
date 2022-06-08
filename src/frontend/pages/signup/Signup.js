@@ -22,7 +22,7 @@ export function Signup() {
       console.log(response.data.encodedToken);
       localStorage.setItem("token", response.data.encodedToken);
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

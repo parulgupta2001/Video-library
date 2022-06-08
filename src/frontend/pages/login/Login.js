@@ -18,7 +18,7 @@ export function Login() {
       });
       localStorage.setItem("token", response.data.encodedToken);
       authDispatch({ type: "ERROR", payload: response.data.encodedToken });
-      navigate("navigate(location.state.from.pathname, { replace: true })");
+      navigate('${location?.state?.from?.pathname}', { replace: true } );
     } catch (error) {
       authDispatch({
         type: "ERROR",

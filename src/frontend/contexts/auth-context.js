@@ -4,7 +4,6 @@ import { authReducer } from "../reducers/auth-reducer";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  // const encodedToken = localStorage.getItem("token");
   const [authState, authDispatch] = useReducer(authReducer, {
     user: {
       firstName: null,

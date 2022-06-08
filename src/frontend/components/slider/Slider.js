@@ -17,7 +17,6 @@ export function Slideshow() {
   useEffect(() => {
     axios.get("/api/videos").then((response) => {
       setImage(response.data.videos);
-      console.log(response.data.videos);
     });
   }, []);
 
