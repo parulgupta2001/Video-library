@@ -20,8 +20,12 @@ export function Login() {
         password: user.password,
       });
       localStorage.setItem("token", response.data.encodedToken);
+
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
       navigate("navigate(location.state.from.pathname, { replace: true })");
+
+      authDispatch({ type: "ERROR", payload: response.data.encodedToken });
+      navigate('${location?.state?.from?.pathname}', { replace: true } );
     } catch (error) {
       authDispatch({
         type: "ERROR",
