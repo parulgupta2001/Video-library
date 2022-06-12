@@ -9,6 +9,7 @@ import {
   Login,
   Signup,
   NotFound,
+  PlayVideo
 } from "./frontend/pages/index";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
@@ -52,6 +53,7 @@ function App() {
             </RequiresAuth>
           }
         />
+        <Route path="/playVideo/:videoId" element={<PlayVideo />}></Route>
         <Route path="/test" element={<Mockman />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
