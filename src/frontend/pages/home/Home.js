@@ -1,5 +1,6 @@
 import { Slideshow } from "../../components/slider/Slider";
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 import { GoPlay } from "react-icons/go";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineLike } from "react-icons/ai";
@@ -23,10 +24,10 @@ export function Home() {
     <>
       <Navbar />
       <div className="home_container">
-        <Slideshow />
+        {/* <Slideshow /> */}
         <div className="data_container">
-          {videoData.map(({ img, title }) => (
-            <div className="card_container">
+          {videoData.map(({ img, title, _id }) => (
+        <Link to={`/playVideo/${_id}`}><div className="card_container">
               <img className="img_card_container" src={img} alt="img" />
               <div className="on_hover">
                 <div>{title}</div>
@@ -44,6 +45,7 @@ export function Home() {
                 </button>
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>
