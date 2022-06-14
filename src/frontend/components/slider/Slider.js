@@ -11,7 +11,7 @@ const properties = {
   pauseOnHover: false,
 };
 
-export function Slideshow() {
+export function Slider() {
   const [image, setImage] = useState([]);
 
   useEffect(() => {

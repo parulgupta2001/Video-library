@@ -1,0 +1,8 @@
+.history_container{
+    display:flex;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    row-gap: 1rem;
+    padding:2rem;
+    flex-wrap: wrap;
+}
