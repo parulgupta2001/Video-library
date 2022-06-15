@@ -2,13 +2,13 @@ html {
     overflow-x: hidden;
 }
 
-.home_container{
-   background-color:var(--background-color-two);
-   display: flex;
-   flex-direction: column;
+.home_container {
+    background-color: var(--background-color-two);
+    display: flex;
+    flex-direction: column;
 }
 
-.data_container{
+.data_container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
