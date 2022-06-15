@@ -1,7 +1,7 @@
 .play_video_container{
     display:flex;
     justify-content: space-around;
-    padding-top: 3rem;
+    padding: 3rem 1rem ;
 }
 
 .related_videos_content{
@@ -23,4 +23,31 @@
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
+}
+
+.play_video_content{
+    display: flex;
+    justify-content:space-between;
+    padding:0.5rem;
+    background-color: black;
+    color:white;
+}
+
+.play_video_content_container{
+    line-height: 0.7rem;
+}
+
+.play_video_icons{ 
+    display:flex;
+    justify-content: space-between;
+    width:6rem;
+    /* background-color: red; */
+}
+
+.present{
+    color: blue;
+}
+
+.absent{
+    color: white;
 }
