@@ -3,12 +3,25 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { FaCaretDown } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth-context";
+import { useState, useEffect } from "react";
+import { useData } from "../../contexts/data-context";
+import axios from "axios";
 import "./navbar.css";
 
 export function Navbar() {
   const navigate = useNavigate();
   const { authState, authDispatch } = useAuth();
   const { token } = authState;
+  const { dataDispatch } = useData()
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    (async () => {
+      const response = await axios.get("/api/categories");
+      setCategories(response.data.categories);
+    })();
+  });
+
 
   function logoutHandler(e) {
     e.preventDefault();
@@ -55,24 +68,18 @@ export function Navbar() {
               <FaCaretDown />
             </button>
             <div className="dropdown_content">
-              <Link to="/all" className="dropdown_link">
-                All
-              </Link>
-              <Link to="/motivational" className="dropdown_link">
-                Motivational Songs
-              </Link>
-              <Link to="/devotional" className="dropdown_link">
-                Devotional Songs
-              </Link>
-              <Link to="/meditation" className="dropdown_link">
-                Meditation Songs
-              </Link>
-              <Link to="/exercise" className="dropdown_link">
-                Exercise Videos
-              </Link>
-              <Link to="/yoga" className="dropdown_link">
-                Yoga Videos
-              </Link>
+              {categories.map((category) => (
+                <option
+                  onClick={(e) =>
+                    dataDispatch({
+                      type: "CATEGORY",
+                      payload: e.target.value,
+                    })
+                  }
+                >
+                  {category.categoryName}
+                </option>
+              ))}
             </div>
           </div>
         </div>
@@ -80,9 +87,10 @@ export function Navbar() {
 
       <div className="search_bar">
         <div className="nav_search">
-          <input placeholder="Search" />
-          <AiOutlineSearch className="search_icon" />
+          <input placeholder="Search" onChange={(e) => dataDispatch({ type: "SEARCH", payload: e.target.value })} />
+          {/* <AiOutlineSearch className="search_icon" /> */}
         </div>
+
         {token ? (
           <button className="logout" onClick={logoutHandler}>
             Logout

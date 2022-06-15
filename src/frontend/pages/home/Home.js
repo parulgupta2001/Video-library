@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import "./home.css";
-import { Navbar,Footer,VideoCard,Slider } from "../../components/index";
+import { useData } from "../../contexts/data-context"
+import { Navbar, Footer, VideoCard, Slider } from "../../components/index";
 
 export function Home() {
-  const [videoData, setVideoData] = useState([]);
 
-  useEffect(() => {
-    axios.get("/api/videos").then((response) => {
-      setVideoData(response.data.videos);
-      console.log(response.data.videos);
-    });
-  }, []);
+  const { dataState } = useData()
+  const { filteredData } = dataState
+
 
   return (
     <>
@@ -19,7 +14,7 @@ export function Home() {
       <div className="home_container">
         {/* <Slideshow /> */}
         <div className="data_container">
-          {videoData.map((videoDetail) => (
+          {filteredData.map((videoDetail) => (
             <VideoCard videoDetail={videoDetail} />
           ))}
         </div>
