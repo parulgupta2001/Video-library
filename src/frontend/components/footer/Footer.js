@@ -1,6 +1,5 @@
 import "./footer.css";
-import { FaTwitter } from "react-icons/fa";
-import { GrFacebookOption } from "react-icons/gr";
+import { FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -24,8 +23,12 @@ export function Footer() {
       <div className="social_content">
         <div className="social_upper_content">Connect with us</div>
         <div className="social_logo">
-          <FaTwitter className="twitter" />
-          <GrFacebookOption className="facebook" />
+          <a href="https://twitter.com/guptaparul1002">
+            <FaTwitter className="twitter" />{" "}
+          </a>
+          <a href="https://www.linkedin.com/in/parul-gupta-4a1413131/">
+            <FaLinkedinIn className="linkedin" />
+          </a>
         </div>
       </div>
     </div>

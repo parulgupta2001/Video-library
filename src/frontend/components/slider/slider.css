@@ -1,0 +1,21 @@
+.carousel {
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 24rem;
+}
+
+.carousel:hover {
+  cursor: pointer;
+}
+
+.slider_image {
+  height: 24rem;
+}
+
+.slider_image:hover {
+  cursor: pointer;
+}

@@ -1,102 +1,106 @@
 .navigation_container {
-    background-color: var(--background-color-one);
-    display: flex;
-    padding: 20px;
-    column-gap: 14rem;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    font-size: 16.4px;
-    z-index: 1;
+  background-color: var(--background-color-one);
+  display: flex;
+  padding: 20px;
+  column-gap: 14rem;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  /* width: 100vw; */
+  font-size: 16.4px;
+  z-index: 1;
 }
 
 .nav_button {
-    background-color: var(--background-color-one);
-    border: none;
+  background-color: var(--background-color-one);
+  border: none;
 }
 
 .nav_dropdown {
-    position: relative;
+  position: relative;
 }
 
 .dropdown_content {
-    display: none;
-    position: absolute;
-    background-color: var(--background-color-two);
-    line-height: 3rem;
-    width: 10rem;
-    padding-top: 2rem;
-    background: linear-gradient(to top, var(--background-color-two), var(--transparent-color));
+  display: none;
+  position: absolute;
+  background-color: var(--background-color-two);
+  line-height: 3rem;
+  width: 10rem;
+  padding-top: 2rem;
+  background: linear-gradient(
+    to top,
+    var(--background-color-two),
+    var(--transparent-color)
+  );
 }
 
 .nav_dropdown:hover .dropdown_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
 }
 
 .links,
 .search_bar {
-    display: flex;
-    column-gap: 2rem;
-    color: var(--color-two);
+  display: flex;
+  column-gap: 2rem;
+  color: var(--color-two);
 }
 
 .navLogo {
-    font-weight: 600;
-    font-family: 'Arvo', serif;
-    font-size: 25px;
-    color: var(--standard-color);
-    text-decoration: none;
+  font-weight: 600;
+  font-family: "Arvo", serif;
+  font-size: 25px;
+  color: var(--standard-color);
+  text-decoration: none;
 }
 
 .nav_search input {
-    height: 1.2rem;
-    width: 20rem;
-    border-radius: 4px;
-    background-color: var(--background-color-three);
-    color: var(--color-two);
+  height: 1.2rem;
+  width: 20rem;
+  border-radius: 4px;
+  background-color: var(--background-color-three);
+  color: var(--color-two);
 }
 
 .nav_link_container {
-    display: flex;
-    column-gap: 15px;
+  display: flex;
+  column-gap: 15px;
 }
 
 .nav_link,
 .nav_button {
-    color: var(--color-two);
-    text-decoration: none;
-    font-size: 16.5px;
-    font-weight: 500;
+  color: var(--color-two);
+  text-decoration: none;
+  font-size: 16.5px;
+  font-weight: 500;
 }
 
 .nav_search {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
 }
 
 .search_bar {
-    display: flex;
-    column-gap: 1.5rem;
+  display: flex;
+  column-gap: 1.5rem;
 }
 
 .login,
 .logout {
-    background-color: var(--primary-color);
-    color: var(--standard-color);
-    border-radius: 5px;
-    padding: 5px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--standard-color);
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }
 
 .search_icon {
-    position: absolute;
-    padding: 2px;
+  position: absolute;
+  padding: 2px;
 }

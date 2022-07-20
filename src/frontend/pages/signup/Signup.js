@@ -6,7 +6,6 @@ import "./signup.css";
 export function Signup() {
   const { authState, authDispatch } = useAuth();
   const navigate = useNavigate();
-
   const { user } = authState;
 
   async function signupHandler(e) {
@@ -30,7 +29,7 @@ export function Signup() {
 
   return (
     <div>
-      <form onSubmit={(e) => signupHandler(e)} className="signup_container">
+      <form onSubmit={signupHandler} className="signup_container">
         <h3>SIGN-UP</h3>
         <div className="input_name_label">
           <div>

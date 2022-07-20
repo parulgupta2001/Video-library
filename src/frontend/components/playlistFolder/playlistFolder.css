@@ -1,0 +1,66 @@
+.playlist_folder_container {
+  display: inline-block;
+  padding: 2rem;
+  width: 12rem;
+}
+
+.playlist_folder_content {
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  position: relative;
+}
+
+.playlist_folder_img {
+  height: 12rem;
+  width: 12rem;
+}
+
+.empty_playlist {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--btn-hover-color);
+}
+
+.empty_playlist img {
+  width: 12rem;
+  height: 12rem;
+}
+
+.empty_playlist a {
+  color: var(--primary-color);
+}
+
+.empty_playlist a:hover {
+  color: blue;
+}
+
+.overlay_text {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 12rem;
+  width: 45%;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.playlist_folder_action {
+  background-color: var(--background-color-one);
+  color: var(--standard-color);
+  width: 12rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+}
+
+.delete_playlist_folder:hover {
+  cursor: pointer;
+}

@@ -9,7 +9,8 @@ import {
   Login,
   Signup,
   NotFound,
-  PlayVideo
+  PlayVideo,
+  PlaylistVideo,
 } from "./frontend/pages/index";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
@@ -54,6 +55,7 @@ function App() {
           }
         />
         <Route path="/playVideo/:videoId" element={<PlayVideo />}></Route>
+        <Route path="playlist/:playlistId" element={<PlaylistVideo />} />
         <Route path="/test" element={<Mockman />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
