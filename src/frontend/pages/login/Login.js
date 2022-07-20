@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth-context";
-import { useLocation, useNavigate } from "react-router-dom";
-import {useState} from "react"
+import { useState } from "react";
 import axios from "axios";
 import "./login.css";
 
@@ -23,9 +22,8 @@ export function Login() {
 
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
       navigate("navigate(location.state.from.pathname, { replace: true })");
-
-      authDispatch({ type: "ERROR", payload: response.data.encodedToken });
-      navigate('${location?.state?.from?.pathname}', { replace: true } );
+      let from = location.state?.from?.pathname || "/";
+      navigate(from, { replace: true });
     } catch (error) {
       authDispatch({
         type: "ERROR",
@@ -33,8 +31,7 @@ export function Login() {
       });
       console.log(error);
     }
-  };
-
+  }
 
   async function guestHandler(e) {
     e.preventDefault();
@@ -54,7 +51,10 @@ export function Login() {
 
   return (
     <div>
-      <form  onSubmit={flag ? loginHandler : guestHandler}className="login_container">
+      <form
+        onSubmit={flag ? loginHandler : guestHandler}
+        className="login_container"
+      >
         <h3>LOGIN</h3>
         <div className="input email_label">
           <div>
@@ -89,10 +89,18 @@ export function Login() {
             <div className="forgot_password"> Forgot Password?</div>
           </div>
         </div>
-        <button className="login_btn" type="submit" onClick={() => setFlag(true)}>
+        <button
+          className="login_btn"
+          type="submit"
+          onClick={() => setFlag(true)}
+        >
           LOGIN
         </button>
-        <button className="guest_login_btn" type="submit" onClick={() => setFlag(false)}>
+        <button
+          className="guest_login_btn"
+          type="submit"
+          onClick={() => setFlag(false)}
+        >
           Login As Guest
         </button>
         <div className="option">

@@ -6,4 +6,5 @@ export { WatchLater } from "./watchLater/WatchLater";
 export { Login } from "./login/Login";
 export { Signup } from "./signup/Signup";
 export { NotFound } from "./404/404";
-export {PlayVideo} from "./playVideo/PlayVideo"
+export { PlayVideo } from "./playVideo/PlayVideo";
+export { PlaylistVideo } from "./playlistVideo/PlaylistVideo";

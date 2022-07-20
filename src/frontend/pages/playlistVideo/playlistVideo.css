@@ -1,0 +1,11 @@
+.playlist_video_container {
+  height: fit-content;
+}
+
+.playlist_video_content {
+  display: flex;
+  column-gap: 1.5rem;
+  justify-content: center;
+  padding: 4rem 2rem 2rem 2rem;
+  border-radius: 1rem;
+}

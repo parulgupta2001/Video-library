@@ -1,0 +1,9 @@
+.playlist_container {
+  position: relative;
+  height: 100vh;
+}
+
+.playlist_content {
+  display: flex;
+  flex-wrap: wrap;
+}

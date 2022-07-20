@@ -1,59 +1,70 @@
 .card_container {
-    height: 12rem;
-    width: 8rem;
-    transition-property: all;
-    transition-duration: 1s;
-    color: var(--color-two);
+  height: 12rem;
+  width: 8rem;
+  transition-property: all;
+  transition-duration: 1s;
+  color: var(--color-two);
 }
 
 .img_card_container:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.no_hover {
+  height: 12rem;
+  width: 8rem;
+  color: var(--color-two);
 }
 
 .on_hover {
-    display: none;
-    /* font-size: 5rem; */
-    font-weight: 500;
-    background-image: linear-gradient(to bottom, var(--image-background-color-one), var(--image-background-color-two), var(--image-background-color-two));
-    border-radius: 7px;
-    width: 8rem;
+  display: none;
+  /* font-size: 5rem; */
+  font-weight: 500;
+  background-image: linear-gradient(
+    to bottom,
+    var(--image-background-color-one),
+    var(--image-background-color-two),
+    var(--image-background-color-two)
+  );
+  border-radius: 7px;
+  width: 8rem;
 }
 
 .card_container:hover,
 .card_container:hover .on_hover {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 3px;
-    transform: scale(1.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3px;
+  transform: scale(1.2);
 }
 
 .img_card_container {
-    height: 12rem;
-    width: 8rem;
-    border-radius: 7px;
+  height: 12rem;
+  width: 8rem;
+  border-radius: 7px;
 }
 
 .on_hover button {
-    background-color: var(--image-background-color-two);
-    color: var(--standard-color);
-    width: 5rem;
-    border: none;
-    text-transform: uppercase;
-    font-size: 7px;
-    opacity: 0.8;
-    font-weight: 500;
-    cursor: pointer;
+  background-color: var(--image-background-color-two);
+  color: var(--standard-color);
+  width: 5rem;
+  border: none;
+  text-transform: uppercase;
+  font-size: 7px;
+  opacity: 0.8;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .on_hover div {
-    font-size: 0.6rem;
+  font-size: 0.6rem;
 }
 
 .on_hover button:hover {
-    background-color: var(--btn-hover-color);
+  background-color: var(--btn-hover-color);
 }
 
 .video_link {
-    text-decoration: none;
+  text-decoration: none;
 }

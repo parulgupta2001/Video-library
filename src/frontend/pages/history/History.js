@@ -16,19 +16,28 @@ export function History() {
   }, []);
 
   return (
-    <>
+    <div className="main">
       <Navbar />
       {historyData.length > 0 ? (
         <div className="history_container">
           {historyData.map((videoDetail) => (
             <HistoryCard videoDetail={videoDetail} />
           ))}
-        </div>) : (
+        </div>
+      ) : (
         <EmptyVideo />
       )}
 
-      {historyData.length > 0 ? (<button className="clear_history_btn" onClick={() => deleteAllHistory(token, dataDispatch)}>Clear History</button>) :
-        ("")}
-    </>
+      {historyData.length > 0 ? (
+        <button
+          className="clear_history_btn"
+          onClick={() => deleteAllHistory(token, dataDispatch)}
+        >
+          Clear History
+        </button>
+      ) : (
+        ""
+      )}
+    </div>
   );
 }
