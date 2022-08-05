@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const getHistory = async (token, dataDispatch) => {
   try {
@@ -38,8 +39,9 @@ const deleteFromHistory = async (id, token, dataDispatch) => {
       },
     });
     dataDispatch({ type: "HISTORY", payload: response.data.history });
+    toast.success(`Video removed from history`);
   } catch (err) {
-    console.log(err);
+    toast.error(`Error. Please try again later.`);
   }
 };
 
@@ -51,8 +53,9 @@ const deleteAllHistory = async (token, dataDispatch) => {
       },
     });
     dataDispatch({ type: "HISTORY", payload: response.data.history });
+    toast.success(` All videos removed from history`);
   } catch (err) {
-    console.log(err);
+    toast.error(`Error. Please try again later.`);
   }
 };
 

@@ -1,5 +1,7 @@
 import "./App.css";
 import { RequiresAuth } from "./frontend/RequiresAuth";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   Home,
   History,
@@ -18,6 +20,7 @@ import Mockman from "mockman-js";
 function App() {
   return (
     <div className="App">
+      <ToastContainer autoClose={1500} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

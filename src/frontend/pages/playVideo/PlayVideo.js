@@ -73,7 +73,7 @@ export function PlayVideo() {
                 className={presentInLiked ? "present" : "absent"}
                 onClick={() => {
                   token
-                    ? null
+                    ? presentInLiked
                       ? deleteFromLiked(clickedVideo._id, token, dataDispatch)
                       : addToLiked(clickedVideo, token, dataDispatch)
                     : navigate("/login", { state: { from: location } });
@@ -112,7 +112,7 @@ export function PlayVideo() {
           {relatedVideos.map(({ _id, title, img }) => (
             <Link to={`/playVideo/${_id}`} className="related_videos_content">
               <img src={img} className="related_videos_img" />
-              <div>{title}</div>
+              <div className="related_videos_title">{title}</div>
             </Link>
           ))}
         </div>
