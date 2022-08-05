@@ -21,8 +21,8 @@ export function PlaylistModal({ setModal, videoDetail }) {
   const { playlistData } = dataState;
 
   return (
-    <div className="modal">
-      <div className="modal_container">
+    <div className="modal" onClick={() => setModal(false)}>
+      <div className="modal_container" onClick={(e) => e.stopPropagation()}>
         <div className="upper_modal_line">
           Save to...
           <MdClose onClick={() => setModal((prev) => !prev)} />

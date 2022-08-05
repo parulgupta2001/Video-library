@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../contexts/auth-context";
 import { useState, useEffect } from "react";
 import { useData } from "../../contexts/data-context";
+import { toast } from "react-toastify";
 import axios from "axios";
 import "./navbar.css";
 
@@ -25,6 +26,7 @@ export function Navbar() {
     e.preventDefault();
     localStorage.removeItem("token");
     authDispatch({ type: "TOKEN", payload: null });
+    toast.success("Logout Successful");
     navigate("/");
   }
 
