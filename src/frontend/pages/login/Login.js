@@ -33,6 +33,14 @@ export function Login() {
     }
   }
 
+  setTimeout(() => {
+    if (error)
+      authDispatch({
+        type: "ERROR",
+        payload: null,
+      });
+  }, 3000);
+
   async function guestHandler(e) {
     e.preventDefault();
     try {
@@ -64,6 +72,7 @@ export function Login() {
           </div>
           <div>
             <input
+              required
               type="email"
               className="email_input user_input"
               onChange={(e) =>
@@ -80,6 +89,7 @@ export function Login() {
           </div>
           <div>
             <input
+              required
               type="password"
               className="password_input user_input"
               onChange={(e) =>

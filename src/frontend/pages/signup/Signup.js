@@ -35,6 +35,7 @@ export function Signup() {
           <div>
             <label className="first_name_label first_name">First name</label>
             <input
+              required
               type="text"
               className="name_input first_name"
               onChange={(e) =>
@@ -45,6 +46,7 @@ export function Signup() {
           <div>
             <label className="last_name_label last_name">Last name</label>
             <input
+              required
               type="text"
               className="name_input last_name"
               onChange={(e) =>
@@ -61,6 +63,7 @@ export function Signup() {
           </div>
           <div>
             <input
+              required
               type="email"
               className="email_input user_input"
               onChange={(e) =>
@@ -77,6 +80,7 @@ export function Signup() {
           </div>
           <div>
             <input
+              required
               type="password"
               className="password_input user_input"
               onChange={(e) =>
@@ -91,6 +95,7 @@ export function Signup() {
           </div>
           <div>
             <input
+              required
               type="password"
               className="password_input user_input"
               onChange={(e) =>
