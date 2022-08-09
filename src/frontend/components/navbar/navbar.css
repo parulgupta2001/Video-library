@@ -4,6 +4,7 @@
   padding: 20px;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   position: sticky;
   top: 0;
   font-size: 16.4px;
@@ -177,6 +178,9 @@
     align-items: center;
     flex-grow: 0;
     column-gap: 2rem;
+  }
+  .navigation_container {
+    justify-content: space-around;
   }
 }
 
