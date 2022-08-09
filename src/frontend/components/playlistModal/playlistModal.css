@@ -12,12 +12,12 @@
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
-  height: 30%;
+  height: fit-content;
   background-color: var(--background-color-one);
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  row-gap: 2rem;
 }
 
 .upper_modal_line {

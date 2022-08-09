@@ -1,11 +1,10 @@
 .carousel {
   text-align: center;
-  margin: auto;
   display: flex;
   justify-content: center;
   margin: 0;
   padding: 0;
-  height: 24rem;
+  z-index: 0;
 }
 
 .carousel:hover {
@@ -13,7 +12,7 @@
 }
 
 .slider_image {
-  height: 24rem;
+  max-height: 24rem;
 }
 
 .slider_image:hover {

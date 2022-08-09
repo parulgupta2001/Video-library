@@ -55,15 +55,17 @@ export function PlayVideo() {
       <Navbar />
       <div className="play_video_container">
         <div className="play_video_content_container">
-          <iframe
-            width="700"
-            height="500"
-            src={`https://www.youtube-nocookie.com/embed/${videoId}/?autoplay=1`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            allowfullscreen
-          ></iframe>
+          <div className="iframe_container">
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowFullScreen
+            ></iframe>
+          </div>
           <div className="play_video_content">
             <div>{clickedVideo.title}</div>
 
@@ -98,6 +100,7 @@ export function PlayVideo() {
 
               <AiFillPlayCircle
                 title="Playlist"
+                className="play_video_playlist"
                 onClick={(e) => {
                   token
                     ? setModal((prev) => !prev)
