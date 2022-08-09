@@ -11,7 +11,6 @@ const AuthProvider = ({ children }) => {
       lastName: null,
       email: null,
       password: null,
-      confirmPassword: null,
     },
     token: localstoragetoken ?? null,
     error: null,

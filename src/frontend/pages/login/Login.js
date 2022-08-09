@@ -3,66 +3,31 @@ import { useAuth } from "../../contexts/auth-context";
 import { useState } from "react";
 import axios from "axios";
 import "./login.css";
+import { toast } from "react-toastify";
 
 export function Login() {
-  const { authState, authDispatch } = useAuth();
-  const { user, error } = authState;
-  const [flag, setFlag] = useState(false);
+  const { authDispatch } = useAuth();
   const navigate = useNavigate();
+  const [detail, setDetail] = useState({ email: "", password: "" });
   const location = useLocation();
 
   async function loginHandler(e) {
     e.preventDefault();
     try {
-      const response = await axios.post(`/api/auth/login`, {
-        email: user.email,
-        password: user.password,
-      });
+      const response = await axios.post(`/api/auth/login`, detail);
       localStorage.setItem("token", response.data.encodedToken);
-
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
-      navigate("navigate(location.state.from.pathname, { replace: true })");
+      toast.success("Login Successful");
       let from = location.state?.from?.pathname || "/";
       navigate(from, { replace: true });
-    } catch (error) {
-      authDispatch({
-        type: "ERROR",
-        payload: "Wrong credentials, please try again",
-      });
-      console.log(error);
-    }
-  }
-
-  setTimeout(() => {
-    if (error)
-      authDispatch({
-        type: "ERROR",
-        payload: null,
-      });
-  }, 3000);
-
-  async function guestHandler(e) {
-    e.preventDefault();
-    try {
-      const response = await axios.post("/api/auth/login", {
-        email: "parulgupta@gmail.com",
-        password: "parul1234",
-      });
-      localStorage.setItem("token", response.data.encodedToken);
-      authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
-      let from = location?.state?.from?.pathname || "/";
-      navigate(from, { replace: true });
     } catch (err) {
-      console.log(err);
+      toast.error(`${err.response.status} Error. Please try again!`);
     }
   }
 
   return (
-    <div>
-      <form
-        onSubmit={flag ? loginHandler : guestHandler}
-        className="login_container"
-      >
+    <div className="login_page">
+      <form onSubmit={loginHandler} className="login_container">
         <h3>LOGIN</h3>
         <div className="input email_label">
           <div>
@@ -74,10 +39,9 @@ export function Login() {
             <input
               required
               type="email"
+              value={detail.email}
               className="email_input user_input"
-              onChange={(e) =>
-                authDispatch({ type: "EMAIL", payload: e.target.value })
-              }
+              onChange={(e) => setDetail({ ...detail, email: e.target.value })}
             />
           </div>
         </div>
@@ -91,25 +55,28 @@ export function Login() {
             <input
               required
               type="password"
+              value={detail.password}
               className="password_input user_input"
               onChange={(e) =>
-                authDispatch({ type: "PASSWORD", payload: e.target.value })
+                setDetail({ ...detail, password: e.target.value })
               }
             />
             <div className="forgot_password"> Forgot Password?</div>
           </div>
         </div>
-        <button
-          className="login_btn"
-          type="submit"
-          onClick={() => setFlag(true)}
-        >
+        <button className="login_btn" type="submit">
           LOGIN
         </button>
         <button
           className="guest_login_btn"
           type="submit"
-          onClick={() => setFlag(false)}
+          onClick={() => {
+            setDetail({
+              ...detail,
+              email: "parulgupta@gmail.com",
+              password: "parul1234",
+            });
+          }}
         >
           Login As Guest
         </button>
@@ -123,7 +90,6 @@ export function Login() {
           </div>
         </div>
       </form>
-      <div className="error_msg">{error}</div>
     </div>
   );
 }

@@ -17,7 +17,7 @@
 }
 
 .empty_playlist {
-  border: 1px solid white;
+  border: 1px solid var(--standard-color);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { GoPlay } from "react-icons/go";
 import { MdOutlineWatchLater } from "react-icons/md";
@@ -27,6 +27,7 @@ export function VideoCard(prop) {
   const { dataState, dataDispatch } = useData();
   const [modal, setModal] = useState(false);
   const { watchLaterData, likedData, historyData } = dataState;
+  const { pathname } = useLocation();
 
   return (
     <div>
@@ -100,14 +101,17 @@ export function VideoCard(prop) {
             }}
           >
             <GoPlay />
-            Add To Playlist
+            {pathname.split("/")[1] === `playlist`
+              ? "Add To Another Playlist"
+              : "Add To Playlist"}
           </button>
-          {window?.location?.pathname === "/history" && (
+
+          {pathname === "/history" && (
             <button onClick={() => deleteFromHistory(_id, token, dataDispatch)}>
               Remove From History
             </button>
           )}
-          {window?.location?.pathname === `/playlist/${playlistId}` && (
+          {pathname === `/playlist/${playlistId}` && (
             <button
               onClick={() =>
                 deleteVideoFromPlaylist(

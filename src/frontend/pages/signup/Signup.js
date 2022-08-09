@@ -1,34 +1,39 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth-context";
+import { useState } from "react";
+import { toast } from "react-toastify";
 import axios from "axios";
 import "./signup.css";
 
 export function Signup() {
   const { authState, authDispatch } = useAuth();
   const navigate = useNavigate();
-  const { user } = authState;
+  const [detail, setDetail] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [dummy, setDummy] = useState(false);
 
   async function signupHandler(e) {
     e.preventDefault();
     try {
-      const response = await axios.post(`/api/auth/signup`, {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        password: user.password,
-      });
-      // saving the encodedToken in the localStorage
-      console.log(response.data.encodedToken);
+      let response;
+      dummy
+        ? (response = await axios.post("/api/auth/login", detail))
+        : (response = await axios.post("/api/auth/signup", detail));
       localStorage.setItem("token", response.data.encodedToken);
       authDispatch({ type: "TOKEN", payload: response.data.encodedToken });
+      toast.success("Signup Successful");
       navigate("/");
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      toast.error(`${err.response.status} Error. Please try again!`);
     }
   }
 
   return (
-    <div>
+    <div className="signup">
       <form onSubmit={signupHandler} className="signup_container">
         <h3>SIGN-UP</h3>
         <div className="input_name_label">
@@ -37,9 +42,10 @@ export function Signup() {
             <input
               required
               type="text"
+              value={detail.firstName}
               className="name_input first_name"
               onChange={(e) =>
-                authDispatch({ type: "FIRST_NAME", payload: e.target.value })
+                setDetail({ ...detail, firstName: e.target.value })
               }
             />
           </div>
@@ -48,9 +54,10 @@ export function Signup() {
             <input
               required
               type="text"
+              value={detail.lastName}
               className="name_input last_name"
               onChange={(e) =>
-                authDispatch({ type: "LAST_NAME", payload: e.target.value })
+                setDetail({ ...detail, lastName: e.target.value })
               }
             />
           </div>
@@ -65,10 +72,9 @@ export function Signup() {
             <input
               required
               type="email"
+              value={detail.email}
               className="email_input user_input"
-              onChange={(e) =>
-                authDispatch({ type: "EMAIL", payload: e.target.value })
-              }
+              onChange={(e) => setDetail({ ...detail, email: e.target.value })}
             />
           </div>
         </div>
@@ -82,33 +88,35 @@ export function Signup() {
             <input
               required
               type="password"
+              value={detail.password}
               className="password_input user_input"
               onChange={(e) =>
-                authDispatch({ type: "PASSWORD", payload: e.target.value })
+                setDetail({ ...detail, password: e.target.value })
               }
             />
           </div>
         </div>
-        <div className="input password_label">
-          <div>
-            <label className="confirm_password_label">Confirm Password</label>
-          </div>
-          <div>
-            <input
-              required
-              type="password"
-              className="password_input user_input"
-              onChange={(e) =>
-                authDispatch({
-                  type: "CONFIRM_PASSWORD",
-                  payload: e.target.value,
-                })
-              }
-            />
-          </div>
-        </div>
+
         <button className="signup_btn" type="submit">
           Create New Account
+        </button>
+        <button
+          className="demo_signup_btn"
+          onClick={() => {
+            {
+              setDummy(true);
+
+              setDetail({
+                ...detail,
+                firstName: "Parul",
+                lastName: "Gupta",
+                email: "parulgupta@gmail.com",
+                password: "parul1234",
+              });
+            }
+          }}
+        >
+          Dummy Signup
         </button>
         <div className="option">
           <div>----------------------OR----------------------</div>

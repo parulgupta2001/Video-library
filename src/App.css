@@ -13,6 +13,9 @@
   --btn-hover-color: grey;
 }
 
-.main {
-  width: 100vw;
+.App {
+  max-width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color-two);
+  box-sizing: border-box;
 }

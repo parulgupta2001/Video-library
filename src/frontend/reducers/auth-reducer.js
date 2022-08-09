@@ -12,12 +12,6 @@ function authReducer(state, action) {
     case "PASSWORD":
       return { ...state, user: { ...state.user, password: action.payload } };
 
-    case "CONFIRM_PASSWORD":
-      return {
-        ...state,
-        user: { ...state.user, confirmPassword: action.payload },
-      };
-
     case "TOKEN":
       return { ...state, token: action.payload };
 
