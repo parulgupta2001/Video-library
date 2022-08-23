@@ -31,7 +31,6 @@ export function PlaylistModal({ setModal, videoDetail }) {
           <li className="folder_list" key={playlist._id}>
             <input
               type="checkbox"
-              id="item._id"
               checked={playlist.videos.find(
                 (video) => video._id === videoDetail._id
               )}

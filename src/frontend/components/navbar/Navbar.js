@@ -155,6 +155,7 @@ export function Navbar() {
               <div className="dropdown_content">
                 {categories.map((category) => (
                   <option
+                    key={category._id}
                     className="dropdown_content_option"
                     onClick={(e) => {
                       navigate("/");

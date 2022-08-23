@@ -40,7 +40,7 @@
   line-height: 0.7rem;
   padding: 0.5rem;
   background-color: black;
-  color: white;
+  color: var(--standard-color);
 }
 
 .iframe_container {

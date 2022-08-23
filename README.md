@@ -1,38 +1,56 @@
-Morning VIBES
-Quick Start
-Preview Link: morning-vibes.vercel.app/
+## MorningVIBES: A Video Library
 
-Features Available
-Authentication
-Login
-Signup
-Guest Login
-Home Page with all the videos.
+### Quick Start
 
-Like
+Preview Link: https://morning-vibes.vercel.app/
 
-Like a video.
-unlike a previously liked video.
-See all liked videos on the Liked page.
-Playlist
-Create playlist
-Delete playlist
-Add video to playlist
-Remove video from playlist
-See all playlists on the Playlist Page.
-History
-User can see all videos he has played on the History Page.
-Remove a video from history.
-Clear history.
-Bookmark
-Bookmark a video
-Remove a video from bookmark.
-filter videos based on categories.
+### Features Available
 
-Search feature for videos.
+1. Authentication
 
-Fully Responsive
+- Login
+- Signup
+- Demo Signup
+- Guest Login
 
-Tech Stack
-Frontend: React, Context API + useReducer, React Router V6, CSS
-Backend: Mockbee
+2. Home Page with all the videos.
+
+3. Like
+
+- Like a video.
+- unlike a previously liked video.
+- See all liked videos on the Liked page.
+
+4. Playlist
+
+- Create playlist
+- Delete playlist
+- Add video to playlist
+- Remove video from playlist
+- See all playlists on the Playlist Page.
+
+5. History
+
+- User can see all videos he has played on the History Page.
+- Remove a video from history.
+- Clear history.
+
+6. Bookmark
+
+- Bookmark a video
+- Remove a video from bookmark.
+
+7. filter videos based on categories.
+
+8. Search feature for videos.
+
+9. Fully Responsive
+
+### Tech Stack
+
+- **Frontend**: React, Context API + useReducer, React Router V6, CSS
+- **Backend**: Mockbee
+
+### Connect With Me
+
+- [Linkedin](https://www.linkedin.com/in/parul-gupta-4a1413131/)

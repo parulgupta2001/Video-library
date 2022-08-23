@@ -13,7 +13,7 @@ export function Home() {
         <Slider />
         <div className="data_container">
           {filteredData.map((videoDetail) => (
-            <VideoCard videoDetail={videoDetail} />
+            <VideoCard videoDetail={videoDetail} key={videoDetail._id} />
           ))}
         </div>
       </div>

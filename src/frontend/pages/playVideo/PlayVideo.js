@@ -59,7 +59,7 @@ export function PlayVideo() {
             <iframe
               width="100%"
               height="100%"
-              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
@@ -113,7 +113,11 @@ export function PlayVideo() {
 
         <div className="related_videos_container">
           {relatedVideos.map(({ _id, title, img }) => (
-            <Link to={`/playVideo/${_id}`} className="related_videos_content">
+            <Link
+              to={`/playVideo/${_id}`}
+              className="related_videos_content"
+              key={_id}
+            >
               <img src={img} className="related_videos_img" />
               <div className="related_videos_title">{title}</div>
             </Link>
